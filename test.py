@@ -1,2 +1,21 @@
 book = "'The Immortals of Meluha'"
 print(book)
+
+var = input("Please type in ur good name?")
+print(var)
+
+print("Please give me two numbers!")
+num_str1 = input("First number:")
+num_str2 = input("Second number:") 
+num1 = int(num_str1)
+num2 = int(num_str2)
+print("The sum of your two numbers is:")
+print(num1 + num2)
+print("The substraction of your two numbers is:")
+print(num1 - num2)
+print("The multiplication of your two numbers is:")
+print(num1 * num2)
+print("The division of your two numbers is:")
+print(num1 / num2)  
+print("The power of your first number to the second number is:")
+print(num1 ** num2)
