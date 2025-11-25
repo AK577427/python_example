@@ -43,11 +43,11 @@
 # -----------------------
 
 #local variable
-# def my_function():
-#     local_value = 23
-#     print(f"Inside of the function, local_value = {local_value}.")
+def my_function():
+    local_value = 23
+    print(f"Inside of the function, local_value = {local_value}.")
 
-# my_function()
+    my_function()
 
 # print(f"Outside of the function, local_value = {local_value}.")
 
