@@ -24,16 +24,13 @@ def count_mentions(some_colour_word: str):
     colour = some_colour_word.lower()
     count = 0
 
-    with open("data\colours_20_simple.csv", encoding="utf-8") as color_file:
+    with open("./data/colours_20_simple.csv", encoding="utf-8") as color_file:
         reader = csv.reader(color_file)
         for x in reader:
             english_value =  x[2].strip().lower()
             if colour in english_value:
                 count =count + 1
     return count    
-
-# some_colour_word = "Air Force Blue (Raf)"
-# print(count_mentions(some_colour_word))
 
 def generate_coloured_text(colour_name: str):
     """The "colours865.csv" file is a .csv file with a header. It lists facts 
@@ -55,22 +52,16 @@ def generate_coloured_text(colour_name: str):
     value of '<p style="color:#e32636;">Alizarin Crimson</p>'
     """
     colour_name_lower = colour_name.casefold()
-    with open("data\colours_865.csv", encoding = "utf-8") as f: #plus_file_io_exercises\
-        reader = csv.reader(f)
-        html = ''
-        for i in reader:
-            english_value =  i[2].strip().casefold()
-            # print(english_value)
-            if(colour_name_lower == english_value):
-                color_value = i[1]
-                html = f'<p style="color:{color_value};">{colour_name}</p>'
-                # print(type(html))
-                # print('working')
-                break
-    return html
 
-# colour_name = "Air Force Blue (Usaf)"
-# print(generate_coloured_text(colour_name))
+    with open("./data/colours_865.csv") as f: #plus_file_io_exercises\
+        reader = csv.DictReader(f)
+        for row in reader:
+            english_value = row["English"].strip().casefold()
+            if colour_name_lower == english_value:
+                return f"<p style=\"color:{row['HEX']};\">{row['English']}</p>"
+
+    # If not found, return empty string
+    return ""
 
 
 def galactic_speed_percentile(galactic_speed: float):
@@ -99,11 +90,11 @@ def galactic_speed_percentile(galactic_speed: float):
     """
     count = 0
 
-    with open("data\galaxies.csv", encoding="utf-8") as f:
+    with open("./data/galaxies.csv", encoding="utf-8") as f:
         reader = csv.reader(f)
         max_rows = sum(1 for _ in reader)
     
-    with open("data\galaxies.csv", encoding="utf-8") as f:
+    with open("./data/galaxies.csv", encoding="utf-8") as f:
         reader = csv.reader(f)
         for num in reader:
             value = int(num[1])

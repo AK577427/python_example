@@ -98,7 +98,7 @@ def create_colour_dict(file_path: str):
     """
     color_dict = {}
     import csv
-    with open(file_path, encoding="utf-8") as my_file:
+    with open(file_path) as my_file:
         # color_file = my_file.read()
         color_file = csv.reader(my_file)
         color_file.__next__()
